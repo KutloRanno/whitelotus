@@ -1,0 +1,6 @@
+@WhiteLotus.Main.Service_HostAddress = http://localhost:5292
+
+GET {{WhiteLotus.Main.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
