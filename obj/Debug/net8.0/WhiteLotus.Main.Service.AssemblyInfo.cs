@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WhiteLotus.Main.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21bf14a1803d4c5a4244981e6c5c0c681bcc0097")]
 [assembly: System.Reflection.AssemblyProductAttribute("WhiteLotus.Main.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WhiteLotus.Main.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

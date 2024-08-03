@@ -3,13 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WhiteLotus.Main.Service.Data;
 using WhiteLotus.Main.Service.Entities;
-using WhiteLotus.Main.Service.Repositories;
 
 namespace WhiteLotus.Main.Service.Controllers;
 
 [ApiController]
 [Route("positions")]
-public class PoistionController(IRepository<Position> repository,WhiteLotusContext context):ControllerBase
+public class PositionController(WhiteLotusContext context):ControllerBase
 {
     private WhiteLotusContext _context = context;
 
@@ -26,7 +25,7 @@ public class PoistionController(IRepository<Position> repository,WhiteLotusConte
     [HttpGet("fat")]
     public async Task<ActionResult<IReadOnlyCollection<PositionDtoRelational>>> GetAllFat()
     {
-        var positions = (await _context.Positions.ToListAsync());
+        var positions = await _context.Positions.ToListAsync();
         var staff = await _context.Staffs.ToListAsync();
 
 
@@ -48,7 +47,7 @@ public class PoistionController(IRepository<Position> repository,WhiteLotusConte
         return Ok(position.AsDto());
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("fat/{id}")]
     public async Task<ActionResult<PositionDtoRelational>> GetByIdFat(int id)
     {
         var position = await _context.Positions.FindAsync(id);

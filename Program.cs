@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WhiteLotus.Main.Service.Data;
 using WhiteLotus.Main.Service.Entities;
-using WhiteLotus.Main.Service.Repositories;
+// using WhiteLotus.Main.Service.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +16,7 @@ builder.Services.AddControllers(options =>
             });
 
 // builder.Services.AddScoped<IRepository<IEntity>, EntityFrameworkWhiteLotusRepository<IEntity>>();
-builder.Services.AddScoped(typeof(IRepository<>),typeof( EntityFrameworkWhiteLotusRepository<>));
+// builder.Services.AddScoped(typeof(IRepository<>),typeof( EntityFrameworkWhiteLotusRepository<>));
 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();//me

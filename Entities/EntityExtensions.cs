@@ -17,8 +17,16 @@ public static class EntityExtensions
         );
     }
 
-    public static RoomDtoRelational AsDtoRelational(this Room room, RoomType roomType, Status status, Floor floor)
+    public static RoomDtoRelational AsDtoRelational(this Room room, RoomType roomType, Status status, Floor floor,List<Booking> bookings)
     {
+
+        var bookingsDtos = new List<BookingDto>();
+
+        foreach (var booking in bookings)
+        {
+            bookingsDtos.Add(booking.AsDto());
+        }
+
         return new RoomDtoRelational
         (
             room.RoomId,
@@ -29,7 +37,8 @@ public static class EntityExtensions
             roomType.Price,
             status.Name,
             room.FloorId,
-            floor.Name
+            floor.Name,
+            bookingsDtos
         );
     }
 

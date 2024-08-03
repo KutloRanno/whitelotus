@@ -92,6 +92,7 @@ C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\White
 C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\WhiteLotus.Main.Service.csproj.CoreCompileInputs.cache
 C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\WhiteLotus.Main.Service.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\WhiteLotus.Main.Service.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\WhiteLotus.Main.Service.sourcelink.json
 C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\abc20-010\WhiteLotus\src\WhiteLotus.Main.Service\obj\Debug\net8.0\staticwebassets\msbuild.WhiteLotus.Main.Service.Microsoft.AspNetCore.StaticWebAssets.props

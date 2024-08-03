@@ -3,16 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using WhiteLotus.Main.Service.Data;
 using WhiteLotus.Main.Service.Dtos;
 using WhiteLotus.Main.Service.Entities;
-using WhiteLotus.Main.Service.Repositories;
 
 namespace WhiteLotus.Main.Service.Controllers;
 
 [ApiController]
 [Route("rooms")]
-public class RoomController(IRepository<Room> repository,WhiteLotusContext context) : Controller
+public class RoomController(WhiteLotusContext context) : Controller
 {
     private WhiteLotusContext _context = context;
-    private readonly IRepository<Room> _roomsRepository = repository;
 
     [HttpGet]
     public async Task<ActionResult<IReadOnlyCollection<RoomDto>>> GetAll(){
@@ -26,12 +24,14 @@ public class RoomController(IRepository<Room> repository,WhiteLotusContext conte
     [HttpGet("fat")]
     public async Task<ActionResult<IReadOnlyCollection<RoomDtoRelational>>> GetAllFat()
     {
+        var bookings = await _context.Bookings.ToListAsync();
         var rooms = (await _context.Rooms.ToListAsync())
                                             .Select(room => room
                                             .AsDtoRelational(
                                                 _context.RoomTypes.FirstOrDefault(rt=>rt.RoomTypeId==room.RoomTypeId),
                                                 _context.Statuses.FirstOrDefault(s=>s.StatusId==room.StatusId),
-                                                _context.Floors.FirstOrDefault(f=>f.FloorId==room.FloorId)
+                                                _context.Floors.FirstOrDefault(f=>f.FloorId==room.FloorId),
+                                                bookings.Where(b=>b.RoomId==room.RoomId).ToList()
                                                 ));
     
         if (rooms is null) return NotFound();
@@ -57,11 +57,12 @@ public class RoomController(IRepository<Room> repository,WhiteLotusContext conte
         var roomType = await _context.RoomTypes.FirstOrDefaultAsync(rt=>rt.RoomTypeId==room.RoomTypeId);
         var status = await _context.Statuses.FirstOrDefaultAsync(s=>s.StatusId==room.StatusId);
         var floor = await _context.Floors.FirstOrDefaultAsync(f => f.FloorId == room.FloorId);
+        var bookings = ((await _context.Bookings.ToListAsync()).Where(b=>b.RoomId==room.RoomId)).ToList();
 
 
         if(room is null)return NotFound();
 
-        return Ok(room.AsDtoRelational(roomType,status,floor));
+        return Ok(room.AsDtoRelational(roomType,status,floor,bookings));
     } 
 
     [HttpPost]

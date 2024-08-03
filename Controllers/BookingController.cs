@@ -3,13 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using WhiteLotus.Main.Service.Data;
 using WhiteLotus.Main.Service.Dtos;
 using WhiteLotus.Main.Service.Entities;
-using WhiteLotus.Main.Service.Repositories;
 
 namespace WhiteLotus.Main.Service.Controllers;
 
 [ApiController]
 [Route("bookings")]
-public class BookingController(IRepository<Booking> repository,WhiteLotusContext context) : Controller
+public class BookingController(WhiteLotusContext context) : Controller
 {
     private WhiteLotusContext _context = context;
 

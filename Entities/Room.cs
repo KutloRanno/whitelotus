@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WhiteLotus.Main.Service.Entities;
 
-public class Room:IEntity
+public class Room
 {
     public int RoomId { get; set; }
     public int Number { get; set; }
@@ -16,7 +16,4 @@ public class Room:IEntity
    public int StatusId { get; set; }
    public Status Status { get; set; }
 
-
-    [NotMapped]
-    public int Id { get => RoomId; }
 }

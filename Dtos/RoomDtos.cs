@@ -22,7 +22,8 @@ public record RoomDtoRelational
      decimal Price,
      string StatusName,
      int FloorId,
-     string FloorName
+     string FloorName,
+     List<BookingDto> Bookings
 );
 
 public record CreateRoomDto

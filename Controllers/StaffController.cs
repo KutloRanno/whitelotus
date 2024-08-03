@@ -3,13 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using WhiteLotus.Main.Service.Data;
 using WhiteLotus.Main.Service.Dtos;
 using WhiteLotus.Main.Service.Entities;
-using WhiteLotus.Main.Service.Repositories;
 
 namespace WhiteLotus.Main.Service.Controllers;
 
 [ApiController]
 [Route("staff")]
-public class StaffController(IRepository<Staff> staff,WhiteLotusContext context) : Controller
+public class StaffController(WhiteLotusContext context) : Controller
 {
     private WhiteLotusContext _context = context;
 
